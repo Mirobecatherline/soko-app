@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   post "/login_buyer", to: "sessions#create"
   delete "/logout_buyer", to: "sessions#destroy"
 
-  post "/signup_admin", to: "buyers#create"
-  get "/me_admin", to: "buyers#show"
+  post "/signup_admin", to: "admins#create"
+  get "/me_admin", to: "admins#show"
   post "/login_admin", to: "sessions#create"
   delete "/logout_admin", to: "sessions#destroy"
 end
