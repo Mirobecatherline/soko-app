@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: soko_app_development
+  database: react_rails_api_project_template_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: soko_app_production
+  database: react_rails_api_project_template_production
   username: react_rails_api_project_template
-  password: <%= ENV['SOKO_APP_DATABASE_PASSWORD'] %>
+  password: <%= ENV['REACT_RAILS_API_PROJECT_TEMPLATE_DATABASE_PASSWORD'] %>
