@@ -20,3 +20,4 @@ class AdminsController < ApplicationController
         params.permit(:adminname,:password, :password_confirmation)
     end
 end
+
