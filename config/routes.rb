@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+
+  resources :users, only: [:create]
   # resources :admins
   # resources :buyers
   # # Routing logic: fallback requests for React Router.
@@ -26,3 +28,4 @@ Rails.application.routes.draw do
 
 >>>>>>> origin
 end
+
