@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import '../App'
 
-function Card({product_name, product_image_url, product_description, quantity, price, subscribe}) {
+function Card({product_name, product_image_url, product_description, quantity, price}) {
 
   const [ actualDetails, setActualDetails ] = useState(false);
 
