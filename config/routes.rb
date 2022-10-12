@@ -14,6 +14,10 @@ Rails.application.routes.draw do
 
   post "/signup_admin", to: "admins#create"
   get "/me_admin", to: "admins#show"
+
+  post "/login_admin", to: "sessions_admin#create"
+  delete "/logout_admin", to: "sessions_admin#destroy"
+
   post "/login_admin", to: "sessions#create"
   delete "/logout_admin", to: "sessions#destroy"
 
