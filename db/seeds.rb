@@ -6,11 +6,11 @@
 
 puts "🎯 Seeding Admin data..."
 # Admin
-admin = Admin.create(username: "admin", email: "admin@sokoadmin.io")
+admin = Admin.create(username: "admin", email: "admin@sokoadmin.io", password: "admin")
 
 puts "🎯 Seeding Buyer data..."
 # Buyer
-buyer_1 = Buyer.create(username: "luke", email: "luke@soko.io")
+buyer_1 = Buyer.create(username: "luke", email: "luke@soko.io", password: "buyer")
 
 puts "🎯 Seeding Review data..."
 # Review
