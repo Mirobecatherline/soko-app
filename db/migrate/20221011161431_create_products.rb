@@ -6,7 +6,7 @@ class CreateProducts < ActiveRecord::Migration[6.1]
       t.string :product_description
       t.integer :quantity
       t.integer :price
-      t.string :subscribe
+      t.string  :subscribe
       t.integer :admin_id
       t.integer :buyer_id
       t.integer :review_id
