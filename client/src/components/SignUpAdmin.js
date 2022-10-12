@@ -27,32 +27,37 @@ function SignUpAdmin({ setadmin }) {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <h1>Sign Up</h1>
-        <label htmlFor="username">username</label>
+        <div  className="mb-3" >
+        <h1>AdminSign Up</h1>
+        <label htmlFor="username" className="form-label">username</label>
         <input
           type="text"
           id="username"
+          className="form-control"
           autoComplete="off"
           value={username}
           onChange={(e) => setusername(e.target.value)}
         />
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password" className="form-label">Password</label>
         <input
           type="password"
           id="password"
+          className="form-control"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           autoComplete="current-password"
         />
-        <label htmlFor="password">Password Confirmation</label>
+        <label htmlFor="password" className="form-label">Password Confirmation</label>
         <input
           type="password"
           id="password_confirmation"
+          className="form-control"
           value={passwordConfirmation}
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           autoComplete="current-password"
         />
-        <button type="submit">Sign Up</button>
+        </div>
+        <button type="submit" className="btn btn-primary">Sign Up</button>
       </form>
     </div>
   );

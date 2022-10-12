@@ -22,24 +22,28 @@ function LoginAdmin({ setadmin }) {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <h1>Login</h1>
-        <label htmlFor="username">username</label>
+        <div className="mb-3">
+        <h1>AdminLogin</h1>
+        <label htmlFor="username" className="form-label">username</label>
         <input
           type="text"
           id="username"
+          className="form-control"
           autoComplete="off"
           value={username}
           onChange={(e) => setusername(e.target.value)}
         />
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password" className="form-label">Password</label>
         <input
           type="password"
           id="password"
+          className="form-control"
           autoComplete="current-password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Login</button>
+        </div>
+        <button type="submit" className="btn btn-primary">Login</button>
       </form>
     </div>
   );
