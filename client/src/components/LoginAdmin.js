@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-function Login({ setbuyer }) {
+function LoginAdmin({ setadmin }) {
   const [username, setusername] = useState("");
   const [password, setPassword] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("/login_buyer", {
+    fetch("/login_admin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -14,7 +14,7 @@ function Login({ setbuyer }) {
       body: JSON.stringify({ username, password }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((buyer) => setbuyer(buyer));
+        r.json().then((admin) => setadmin(admin));
       }
     });
   }
@@ -45,4 +45,4 @@ function Login({ setbuyer }) {
   );
 }
 
-export default Login;
+export default LoginAdmin;

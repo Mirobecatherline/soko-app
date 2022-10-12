@@ -1,22 +1,17 @@
 import React, { useState } from "react";
 
-function SignUp({ setbuyer }) {
+function LoginBuyer({ setbuyer }) {
   const [username, setusername] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordConfirmation, setPasswordConfirmation] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("/signup_buyer", {
+    fetch("/login_buyer", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        username,
-        password,
-        password_confirmation: passwordConfirmation,
-      }),
+      body: JSON.stringify({ username, password }),
     }).then((r) => {
       if (r.ok) {
         r.json().then((buyer) => setbuyer(buyer));
@@ -27,7 +22,7 @@ function SignUp({ setbuyer }) {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <h1>Sign Up</h1>
+        <h1>Login</h1>
         <label htmlFor="username">username</label>
         <input
           type="text"
@@ -40,22 +35,14 @@ function SignUp({ setbuyer }) {
         <input
           type="password"
           id="password"
+          autoComplete="current-password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          autoComplete="current-password"
         />
-        <label htmlFor="password">Password Confirmation</label>
-        <input
-          type="password"
-          id="password_confirmation"
-          value={passwordConfirmation}
-          onChange={(e) => setPasswordConfirmation(e.target.value)}
-          autoComplete="current-password"
-        />
-        <button type="submit">Sign Up</button>
+        <button type="submit">Login</button>
       </form>
     </div>
   );
 }
 
-export default SignUp;
+export default LoginBuyer;

@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import Home from "./Home";
-import Login from "./Login";
+import LoginAdmin from "./LoginAdmin";
+import LoginBuyer from "./LoginBuyer";
 import NavBar from "./NavBar";
-import SignUp from "./SignUp";
+import SignUpAdmin from "./SignUpAdmin";
+import SignUpBuyer from "./SignUpBuyer";
 
 function App() {
   const [buyer, setbuyer] = useState(null);
+  const [admin, setadmin] = useState(null);
 
   useEffect(() => {
     // auto-login
@@ -17,24 +20,39 @@ function App() {
       }
     });
   }, []);
+  
+  useEffect(() => {
+    // auto-login
+    fetch("/me_admin").then((r) => {
+      if (r.ok) {
+        r.json().then((admin) => setadmin(admin));
+      }
+    });
+  }, []);
 
   return (
     <>
-      <NavBar buyer={buyer} setbuyer={setbuyer} />
+      <NavBar buyer={buyer} setbuyer={setbuyer} admin={admin} setadmin={setadmin}  />
       <main>
-        {buyer ? (
+        {buyer || admin ? (
           <Switch>
             <Route path="/">
-              <Home buyer={buyer}/>
+              <Home buyer={buyer} admin={admin}/>
             </Route>
           </Switch>
         ) : (
           <Switch>
-            <Route path="/signup">
-              <SignUp setbuyer={setbuyer} />
+            <Route path="/signupbuyer">
+              <SignUpBuyer setbuyer={setbuyer}  />
             </Route>
-            <Route path="/login">
-              <Login setbuyer={setbuyer} />
+            <Route path="/signupadmin">
+              <SignUpAdmin setadmin={setadmin} />
+            </Route>
+            <Route path="/loginbuyer">
+              <LoginBuyer setbuyer={setbuyer} />
+            </Route>
+            <Route path="/loginadmin">
+              <LoginAdmin setadmin={setadmin}/>
             </Route>
             <Route path="/">
               <Home />
