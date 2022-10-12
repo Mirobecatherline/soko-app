@@ -1,8 +1,8 @@
-Admin.destroy_all
-Buyer.destroy_all
-Product.destroy_all
-Review.destroy_all
-Wishlist.destroy_all
+# Admin.destroy_all
+# Buyer.destroy_all
+# Product.destroy_all
+# Review.destroy_all
+# Wishlist.destroy_all
 
 puts "🎯 Seeding Admin data..."
 # Admin
