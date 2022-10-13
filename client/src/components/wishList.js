@@ -1,19 +1,18 @@
-import { useParams } from "react-router-dom";
+//import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import "./products.css";
 
 const Products  = (props) => {
-  const [boards, setBoards] = useState({});
+  const [product, setBoards] = useState({});
   const [images, setImages] = useState([]);
-  const {id}  = useParams();
+ //const {id}  = useParams();
   const [isWishAdd, setIsWishAdd] = useState(false);
   const [wishCount, setWishCount] = useState(0); 
 
   const wishCountHandler = async () => {
     if (!isWishAdd) {
       setWishCount(prev => prev +1)
-      await fetch(`https://27.96.131.85:8443/api/likeBoards/${boards.id}`, {
+      await fetch(`/wishlists/${product.id}`, {
         credentials: 'include',
         method: "POST",
         body: JSON.stringify({
@@ -21,11 +20,11 @@ const Products  = (props) => {
         }),
       })
       alert("Add to wishlist.")
-      console.log(boards)
+      console.log(product)
       console.log("count+1")
     } else  {
       setWishCount(prev => prev -1)
-      await fetch(`https://27.96.131.85:8443/api/likeBoards/${boards.id}`, {
+      await fetch(`/api/wishlists/${product.id}`, {
         credentials: 'include',
         method: "DELETE",
         body: JSON.stringify({
@@ -33,7 +32,7 @@ const Products  = (props) => {
         })
       })
       alert("Removed from wishlist.")
-      console.log(boards)
+      console.log(product)
       console.log("count-1")
     }
     setIsWishAdd(prev => !prev);
@@ -42,7 +41,7 @@ const Products  = (props) => {
 
   useEffect(() => {
     (async function () {
-      await axios.get(`https://27.96.131.85:8443/api/boards/${id}`, {
+      await axios.get(`https://27.96.131.85:8443/api/boards/$`, {
         withCredentials: true,
       }).then((res)=> {
         console.log(res);
@@ -71,34 +70,33 @@ const Products  = (props) => {
        
         <div className="productsContext">  
           <div className="productsBoardTitle">
-            {boards.title}
+            {product.name}
           </div>
           
           <div className="productsName">
-            Products : {boards.productsName}
+            Products : {product.productsName}
           </div>
 
           <div className="productsPrice">
-            price : {boards.price} one
+            price : {product.price} one
           </div>
 
           <div className="productsWriter">
-            seller : {boards.writer}
+            seller : {product.writer}
           </div>
           
           <div className="productsText">
-          {boards.content}
+          {product.content}
           </div>
-
-          <div className="productsBtn">
+           <div className="goodsBtn">
             <span className="zzimBtn">
-              <button class="btn btn-primary" type="submit" onClick={wishCountHandler}></button>
+              <button class="btn btn-primary" type="submit" onClick={wishCountHandler}>to add to wishlist</button>
             </span>
-            <button class="btn btn-primary" type="submit">email seller</button>
+            <button class="btn btn-primary" type="submit">to delete from wishlist</button>
           </div>
         </div>
       </div>
     );
 };
 
-export default products;
+export default Products;
