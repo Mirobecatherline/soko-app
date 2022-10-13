@@ -40,13 +40,13 @@ ActiveRecord::Schema.define(version: 2022_10_11_221739) do
     t.string "subscribe"
     t.integer "admin_id"
     t.integer "buyer_id"
-    t.integer "review_id"
     t.integer "wishlist_id"
   end
 
   create_table "reviews", force: :cascade do |t|
     t.string "comment"
     t.integer "rating"
+    t.integer "product_id"
   end
 
   create_table "wishlists", force: :cascade do |t|

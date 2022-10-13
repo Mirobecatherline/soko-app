@@ -12,18 +12,13 @@ puts "🎯 Seeding Buyer data..."
 # Buyer
 buyer_1 = Buyer.create(username: "luke", email: "luke@soko.io", password: "buyer")
 
-puts "🎯 Seeding Review data..."
-# Review
-review_1 = Review.create(comment: Faker::Lorem.sentence(word_count: 5, supplemental: true), rating: Faker::Number.within(range: 1..5))
-# review_1 = Review.create(comment: "Review 1", rating: 5)
-
 puts "🎯 Seeding Wishlist data..."
 # Wishlist
 wishlist_1 = Wishlist.create(product_name: Faker::Commerce.product_name, buyer_id: buyer_1.id)
 
 puts "🎯 Seeding Product data..."
 # Product
-Product.create(product_name: Faker::Commerce.product_name, 
+product_1 = Product.create(product_name: Faker::Commerce.product_name, 
     product_image_url: Faker::LoremFlickr.image, 
     product_description: Faker::Lorem.sentence(word_count: 12),
     quantity: Faker::Number.digit,
@@ -31,8 +26,13 @@ Product.create(product_name: Faker::Commerce.product_name,
     subscribe: "Yes",
     admin_id: admin.id,
     buyer_id: buyer_1.id,
-    review_id: review_1.id,
+    # review_id: review_1.id,
     wishlist_id: wishlist_1.id
 )
+
+puts "🎯 Seeding Review data..."
+# Review
+review_1 = Review.create(comment: Faker::Lorem.sentence(word_count: 5, supplemental: true), rating: Faker::Number.within(range: 1..5), 
+product_id:product_1.id)
 
 puts "🎯 Done seeding data"
