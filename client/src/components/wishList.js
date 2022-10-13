@@ -90,9 +90,8 @@ const Products  = (props) => {
           </div>
            <div className="goodsBtn">
             <span className="zzimBtn">
-              <button class="btn btn-primary" type="submit" onClick={wishCountHandler}>to add to wishlist</button>
+              <button className="btn btn-primary" type="submit" onClick={wishCountHandler}>Add To Wishlist</button>
             </span>
-            <button class="btn btn-primary" type="submit">to delete from wishlist</button>
           </div>
         </div>
       </div>
