@@ -22,8 +22,12 @@ Rails.application.routes.draw do
   delete "/logout_admin", to: "sessions#destroy"
 
 
+
   resources :wishlists, only: [:index, :show, :create, :destroy]
 
+
+
+  resources :products, only: [:index, :show, :update, :create, :destroy]
 
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
