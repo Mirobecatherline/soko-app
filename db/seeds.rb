@@ -15,6 +15,7 @@ buyer_1 = Buyer.create(username: "luke", email: "luke@soko.io", password: "buyer
 puts "🎯 Seeding Review data..."
 # Review
 review_1 = Review.create(comment: Faker::Lorem.sentence(word_count: 5, supplemental: true), rating: Faker::Number.within(range: 1..5))
+# review_1 = Review.create(comment: "Review 1", rating: 5)
 
 puts "🎯 Seeding Wishlist data..."
 # Wishlist
