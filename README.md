@@ -1,8 +1,24 @@
-# Soko App
+<p align="center"><img src="https://img.icons8.com/stickers/344/online-shop.png" /></p>
+
+<h1 align="center">Soko App</h1>
 
 ## Overview
 
 Soko App is an e-commerce website where buyers can create an account and perform CRUD operations on products in their respective account. The website leverages on React (Frontend), Rails (Backend), and Heroku (Deployment and Hosting) technologies.
+
+## Technology Stack
+* Frontend - React JS 
+* Backend - A Rails application utilizing a custom Rails API
+ 
+## Functionalities
+ 
+* User can add items to their respective product list.
+* User can read all items under their account
+* User can update items under their account
+* User can delete items under their account
+* User can add a review to respective products
+* Subscription functionality to get updates on newly introduced products
+
 
 ## Requirements and Local Setup
 
