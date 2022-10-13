@@ -22,6 +22,7 @@ wishlist_1 = Wishlist.create(product_name: Faker::Commerce.product_name, buyer_i
 
 puts "🎯 Seeding Product data..."
 # Product
+100.times do 
 Product.create(product_name: Faker::Commerce.product_name, 
     product_image_url: Faker::LoremFlickr.image, 
     product_description: Faker::Lorem.sentence(word_count: 12),
@@ -33,5 +34,5 @@ Product.create(product_name: Faker::Commerce.product_name,
     review_id: review_1.id,
     wishlist_id: wishlist_1.id
 )
-
+end 
 puts "🎯 Done seeding data"

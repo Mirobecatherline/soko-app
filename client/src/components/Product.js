@@ -5,7 +5,7 @@ import '../App';
 function Product() {
 
         const [products, setProducts] = useState([]);
-        // const [ search, setSearch] = useState(" ");
+        const [ search, setSearch] = useState(" ");
 
         const fetchData = () =>{
             fetch('/products')
@@ -20,48 +20,50 @@ function Product() {
               fetchData()
             }, [])
 
-        // const searchProduct = (e) =>{
-        //   if(e.key==="Enter"){
-        //     axios.get("/products")
-        //     .then(res =>setProducts(res.data))
-        //   }
-        // }
+        const searchProduct = (e) =>{
+          if(e.key==="Enter"){
+            axios.get("/products")
+            .then(res =>setProducts(res.data))
+          }
+        }
     
-        // const handleOnSearch =(e) => {
-        //   setSearch(e.target.value)
-        // }
+        const handleOnSearch =(e) => {
+          setSearch(e.target.value)
+         }
     
-          //const filterProducts = products.filter((product) => product.productName.includes(search))
+         const filterProducts = products.filter((product) => product.product_name.includes(search))
     
-    
-           //const productNames = products.map((product) => product.productName)
+           const displayProduct = products.map((product) => {
+            return <Card key={product.id} product={product}/>})
       return (
         <>
-        {/* <div className="row2">
-                {/* <h2>Find a product</h2>
-                <div className="search">
-                    <input type="text" placeholder="Enter Your Product Name" 
-                   value={search} onChange={handleOnSearch}
-                   onKeyPress={searchProduct}
-                   />
-                </div> }
-            </div >
-        <div className="product-list">{filterProducts.map((product) =>{
-          return <Card name={product.productName} 
-          image={product.productImageUrl} 
-          price={product.price} 
-          quantity={product.quantity} 
-          description={product.productDescription} 
-          key={product.id}/>
+      <div className="box">
+     {products.filter((val)=>{
+      if (searchInput ==="") {
+        return val
+      } 
+      else if (val.product_name.toLowerCase().includes(searchInput.toLowerCase())){
+        return val
+      }
+      return false;
+    }).map((pro)=>{
+        
+      return (<Productitem image={pro.product_image_url}
+        key={pro.id}
+        product_id={pro.id}
+        title={pro.product_name}
+        description={pro.product_description}
+        items={pro.quantity}
+        />)
         })}
-        </div>  */}
-        {products.length > 0 && (
-          <ul>
-            {products.map(product => (
-              <li key={product.id}>{product.productName}</li>
-            ))}
-          </ul>
-        )}
+  </div>
+        <div class="input-group">
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+            <button onClick={handleOnSearch} class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+        {displayProduct}
         </>
       )
 }
