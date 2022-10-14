@@ -16,7 +16,6 @@ Soko App is an e-commerce website where buyers can create an account and perform
 * User can read all items under their account
 * User can update items under their account
 * User can delete items under their account
-* User can add a review to respective products
 * Subscription functionality to get updates on newly introduced products
 
 
@@ -83,7 +82,7 @@ git push heroku main
 ```
 
 Run
-> `git push heroku master` instead.
+> `git push heroku main` instead.
 
 Any time you have changes to deploy, just make sure your changes are committed
 on the main branch of your repo, and push those changes to Heroku to deploy
