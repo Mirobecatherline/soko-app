@@ -1,41 +1,37 @@
-import React, { useEffect, useState } from "react";
+import "./amazon.css";
 
-function Productitem({image,title,description,product_id}) {
-    const [read, setRead]=useState(false)
-    useEffect(() => {
-        // auto-login
-        fetch(`/products/:1`).then((r) => {
-          if (r.ok) {
-            r.json().then((read) => setRead(read));
-          }
-        });
-      }, []);
-    function handleaddclick() {
-        console.log(read) 
-        
-    }
-    
-    function handleremoveclick() {
-        setRead((read)=>read=!read)
-    }
-    function handlewishclick() {
-        setRead((read)=>read=!read)
-    }
+import React from "react";
+
+// product_id={pro.id}
+//         title={pro.product_name}
+//         description={pro.product_description}
+//         items={pro.quantity}
+// image={pro.product_image_url}
+// import Wishlist from "./wishList";
+
+const Productitem=({products,handleClick}) =>{
+    const{product_name,product_description,quantity,product_image_url,price}=products;
+   
         return (
-        <div className="ui card" >
-                <div className="image">
-                    <img src={image} alt="product_image"/>
+            <div  style={{display: "grid",gridTemplateColumns:"4,1fr",justifyContent: "space-around" , paddingTop: "0px"}}>
+        <div className="cards" >
+                <div className="image_box">
+                    <img src={product_image_url} alt="product_image"/>
                 </div>
-                <div className="content">
-            <h3 className="header">{title}</h3>
+                <div className="details">
+            <h3 className="header">{product_name}</h3>
             <div className="description">
-            {description}
+            {product_description}
             </div>
+            <div className="description">
+           quantity: {quantity}
+            </div>
+            <p>Price - {price}Ksh</p>
             <br/>
-            <button className="positive ui button"  onClick={handleaddclick(product_id)}> Add to cart</button>
-            <button className="positive ui button"  onClick={handleremoveclick}> Remove from cart</button>
-            <button className="positive ui button"  onClick={handlewishclick}> Add to wishlist</button>
+            <button className="positive ui button" onClick={ ()=>handleClick(products)}> Add to cart</button>
+            
             </div>
+        </div>
         </div>
                 );
 }

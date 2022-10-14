@@ -13,6 +13,7 @@ function App() {
   const [admin, setadmin] = useState(null);
 
   useEffect(() => {
+    
     // auto-login
     fetch("/me_buyer").then((r) => {
       if (r.ok) {
@@ -32,6 +33,7 @@ function App() {
 
   return (
     <>
+    
       <NavBar buyer={buyer} setbuyer={setbuyer} admin={admin} setadmin={setadmin}  />
       <main>
         {buyer || admin ? (

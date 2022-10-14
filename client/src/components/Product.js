@@ -1,11 +1,21 @@
+import "./amazon.css";
+
 import React,{ useEffect, useState } from "react";
 
+// import Cards from "./Cart";
 // import AdduserproductForm from "./AdduserproductForm";
 //import Cart from "./Cart";
 import Productitem from "./Productitem";
 
-function Product() {
+function Product({handleClick}) {
   const [products, setProducts]=useState([]);
+  
+  // const [cart,setcart]= useState([])
+  
+  // const handleClick=(products)=>{
+  //   // cart.push(products)
+  //   console.log(products)
+  // }
   
   useEffect(()=>{
     fetch("/products")
@@ -29,7 +39,9 @@ function Product() {
    
    const [searchInput, setSearchInput] = useState("");
   return(
-     <div>   
+      
+      
+        <div >
     <div className="ui large fluid icon input">
       <input
         type="text"
@@ -40,6 +52,7 @@ function Product() {
       <i className="circular search link icon"></i>
     </div>
     {/* <AdduserproductForm onsubmission={onsubmission}/> */}
+     <section>
      <div className="box">
      {products.filter((val)=>{
       if (searchInput ==="") {
@@ -51,19 +64,19 @@ function Product() {
       return false;
     }).map((pro)=>{
         
-      return (<Productitem image={pro.product_image_url}
+      return (<Productitem 
         key={pro.id}
-        product_id={pro.id}
-        title={pro.product_name}
-        description={pro.product_description}
-        items={pro.quantity}
+        products={pro}
+        handleClick={handleClick}
        
       
         />)
         })}
   </div>
+  </section>
+  </div>
+  
      
-     </div>
      
   )
 }
