@@ -42,18 +42,21 @@ function Product({handleClick}) {
       
       
         <div >
+          
     <div className="ui large fluid icon input">
       <input
         type="text"
-        placeholder="Search for item by name" 
+        placeholder="   Search for item by name   " 
         onChange={(e)=>setSearchInput(e.target.value)}
         
       />
-      <i className="circular search link icon"></i>
+      <button type="button" class="btn btn-primary">
+    <i class="fas fa-search"></i>
+  </button>
     </div>
     {/* <AdduserproductForm onsubmission={onsubmission}/> */}
      <section>
-     <div className="box">
+     
      {products.filter((val)=>{
       if (searchInput ==="") {
         return val
@@ -72,7 +75,7 @@ function Product({handleClick}) {
       
         />)
         })}
-  </div>
+  
   </section>
   </div>
   

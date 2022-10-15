@@ -37,8 +37,10 @@ function Home({ buyer,admin }) {
               </div>
             </div>
           </nav>
+          <br/>
+          
           <h1>Welcome, {buyer.username}!</h1>
-         
+          <br/>
           {show?<Product  handleClick={handleClick}/>: <Cart cart={cart} setCart={setCart} handleChange={handleChange}/> }
         </div>
       );

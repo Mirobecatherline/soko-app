@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import Home from "./Home";
 import LoginAdmin from "./LoginAdmin";
@@ -37,13 +37,13 @@ function App() {
       <NavBar buyer={buyer} setbuyer={setbuyer} admin={admin} setadmin={setadmin}  />
       <main>
         {buyer || admin ? (
-          <Routes>
+          <Switch>
             <Route path="/">
               <Home buyer={buyer} admin={admin}/>
             </Route>
-          </Routes>
+          </Switch>
         ) : (
-          <Routes>
+          <Switch>
             <Route path="/signupbuyer">
               <SignUpBuyer setbuyer={setbuyer}  />
             </Route>
@@ -59,7 +59,7 @@ function App() {
             <Route path="/">
               <Home />
             </Route>
-          </Routes>
+          </Switch>
         )}
       </main>
     </>
