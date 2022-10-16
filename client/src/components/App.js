@@ -13,7 +13,6 @@ function App() {
   const [admin, setadmin] = useState(null);
 
   useEffect(() => {
-    
     // auto-login
     fetch("/me_buyer").then((r) => {
       if (r.ok) {
@@ -21,7 +20,7 @@ function App() {
       }
     });
   }, []);
-  
+
   useEffect(() => {
     // auto-login
     fetch("/me_admin").then((r) => {
@@ -33,19 +32,23 @@ function App() {
 
   return (
     <>
-    
-      <NavBar buyer={buyer} setbuyer={setbuyer} admin={admin} setadmin={setadmin}  />
+      <NavBar
+        buyer={buyer}
+        setbuyer={setbuyer}
+        admin={admin}
+        setadmin={setadmin}
+      />
       <main>
         {buyer || admin ? (
           <Switch>
             <Route path="/">
-              <Home buyer={buyer} admin={admin}/>
+              <Home buyer={buyer} admin={admin} />
             </Route>
           </Switch>
         ) : (
           <Switch>
             <Route path="/signupbuyer">
-              <SignUpBuyer setbuyer={setbuyer}  />
+              <SignUpBuyer setbuyer={setbuyer} />
             </Route>
             <Route path="/signupadmin">
               <SignUpAdmin setadmin={setadmin} />
@@ -54,7 +57,7 @@ function App() {
               <LoginBuyer setbuyer={setbuyer} />
             </Route>
             <Route path="/loginadmin">
-              <LoginAdmin setadmin={setadmin}/>
+              <LoginAdmin setadmin={setadmin} />
             </Route>
             <Route path="/">
               <Home />

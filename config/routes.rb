@@ -21,6 +21,12 @@ Rails.application.routes.draw do
   post "/login_admin", to: "sessions#create"
   delete "/logout_admin", to: "sessions#destroy"
 
+  resources :products, only: [:index]
+
+  resources :reviews, only: [:index]
+
+  resources :users
+
 
 
   resources :wishlists, only: [:index, :show, :create, :destroy]
