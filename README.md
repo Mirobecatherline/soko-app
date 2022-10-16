@@ -19,10 +19,42 @@ Soko App is an e-commerce website where buyers can create an account and perform
 * User can delete items under their account
 * Subscription functionality to get updates on newly introduced products
 
+## Deployment
+
+Find Heroku live-link [here](https://soko-application.herokuapp.com/) 
+
 ## Presentation
 
 [Project Overview - Slide Deck](https://docs.google.com/presentation/d/12Dd0pevvZlR2S3mSeqvxzefzKi2QgTSkQ0FJEc5J7O8/edit#slide=id.gc6f90357f_0_27)
 
+## Screenshots
+* Homepage
+
+![Homepage](/client/public/homepage_soko_app.png)
+
+* Admin Sign Up Page
+
+![AdminSignUp](/client/public/admin_signup_page.png)
+
+* Admin Login Page
+
+![AdminLogin](/client/public/admin_login_page.png)
+
+* Buyer Sign Up
+
+![BuyerSignUp](/client/public/buyer_signup_page.png)
+
+* Buyer Login
+
+![BuyerLogin](/client/public/buyer_login_page.png)
+
+* Products Page - 1
+
+![ProductsPage1](/client/public/products_page_1.png)
+
+* Products Page - 2
+
+![ProductsPage2](/client/public/products_page_2.png)
 
 ## Requirements 
 
