@@ -1,55 +1,87 @@
-import React, { useState } from 'react'
-import Card from './Card'
+import "./amazon.css";
 
-function Product() {
+import React,{ useEffect, useState } from "react";
 
-        const [products, setProducts] = useState([]);
-        const [ search, setSearch] = useState(" ");
-    
-        useEffect(() => {
-            fetch('http://127.0.0.1:3000/products')
-            .then(r =>r.json())
-            .then((data) => setProducts(data))
-            
-        },[])
-    
-        const searchProduct = (e) =>{
-          if(e.key==="Enter"){
-            axios.get("http://127.0.0.1:3000/products")
-            .then(res =>setProducts(res.data))
-          }
-        }
-    
-        const handleOnSearch =(e) => {
-          setSearch(e.target.value)
-        }
-    
-          const filterProducts = products.filter((product) => product.productName.includes(search))
-    
-    
-          const productNames = products.map((product) => product.productName)
-      return (
-        <>
-        <div className="row2">
-                <h2>Find a product</h2>
-                <div className="search">
-                    <input type="text" placeholder="Enter Your Product Name" 
-                   value={search} onChange={handleOnSearch}
-                   onKeyPress={searchProduct}
-                   />
-                </div>
-            </div>
-        <div className="product-list">{filterProducts.map((product) =>{
-          return <Card name={product.productName} 
-          image={product.productImageUrl} 
-          price={product.price} 
-          quantity={product.quantity} 
-          description={product.productDescription} 
-          key={product.id}/>
+// import Cards from "./Cart";
+// import AdduserproductForm from "./AdduserproductForm";
+//import Cart from "./Cart";
+import Productitem from "./Productitem";
+
+function Product({handleClick}) {
+  const [products, setProducts]=useState([]);
+  
+  // const [cart,setcart]= useState([])
+  
+  // const handleClick=(products)=>{
+  //   // cart.push(products)
+  //   console.log(products)
+  // }
+  
+  useEffect(()=>{
+    fetch("/products")
+    .then(r=>r.json())
+    .then(data=>setProducts(data)) 
+  },[])
+  console.log(products)
+ 
+  // function onsubmission(trans) {
+  
+  //   fetch("http://localhost:8001/store",
+  //       {method:"POST",
+  //         headers:{"Content-Type": "application/json"},
+  //         body:JSON.stringify(trans),
+  
+  //     })
+  //     .then(r=>r.json())//data is just the trans data we want to add
+  //     .then(data=>setProducts(currentproduct=>[...currentproduct,data]))//unupdate kwa server ndio inaonekana kwa screen
+  //     .catch(error=>alert(error))
+  // } 
+   
+   const [searchInput, setSearchInput] = useState("");
+  return(
+      
+      
+        <div >
+          
+    <div className="ui large fluid icon input">
+      <input
+        type="text"
+        placeholder="   Search for item by name   " 
+        onChange={(e)=>setSearchInput(e.target.value)}
+        
+      />
+      <button type="button" class="btn btn-primary">
+    <i class="fas fa-search"></i>
+  </button>
+    </div>
+    {/* <AdduserproductForm onsubmission={onsubmission}/> */}
+     <section>
+     
+     {products.filter((val)=>{
+      if (searchInput ==="") {
+        return val
+      } 
+      else if (val.product_name.toLowerCase().includes(searchInput.toLowerCase())){
+        return val
+      }
+      return false;
+    }).map((pro)=>{
+        
+      return (<Productitem 
+        key={pro.id}
+        products={pro}
+        handleClick={handleClick}
+       
+      
+        />)
         })}
-        </div>
-        </>
-      )
+  
+  </section>
+  </div>
+  
+     
+     
+  )
 }
 
-export default Product
+export default Product;
