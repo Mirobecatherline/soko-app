@@ -12,130 +12,16 @@ puts "🎯 Seeding Buyer data..."
 # Buyer
 buyer_1 = Buyer.create(username: "luke", email: "luke@soko.io", password: "buyer")
 
+puts "🎯 Seeding Review data..."
+# Review
+review_1 = Review.create(comment: Faker::Lorem.sentence(word_count: 5, supplemental: true), rating: Faker::Number.within(range: 1..5))
+
 puts "🎯 Seeding Wishlist data..."
 # Wishlist
 wishlist_1 = Wishlist.create(product_name: Faker::Commerce.product_name, buyer_id: buyer_1.id)
 
 puts "🎯 Seeding Product data..."
 # Product
-product_1 = Product.create(product_name: Faker::Commerce.product_name, 
-    product_image_url: Faker::LoremFlickr.image, 
-    product_description: Faker::Lorem.sentence(word_count: 12),
-    quantity: Faker::Number.digit,
-    price: Faker::Commerce.price,
-    subscribe: "Yes",
-    admin_id: admin.id,
-    buyer_id: buyer_1.id,
-    # review_id: review_1.id,
-    wishlist_id: wishlist_1.id
-)
-
-
-puts "🎯 Seeding Review data..."
-# Review
-review_1 = Review.create(comment: Faker::Lorem.sentence(word_count: 5, supplemental: true), rating: Faker::Number.within(range: 1..5), 
-product_id:product_1.id)
-
-
-Product.create(product_name: Faker::Commerce.product_name, 
-    product_image_url: "https://images.unsplash.com/photo-1567721913486-6585f069b332?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZHVjdHN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", 
-    product_description: Faker::Lorem.sentence(word_count: 12),
-    quantity: Faker::Number.digit,
-    price: Faker::Commerce.price,
-    subscribe: "Yes",
-    admin_id: admin.id,
-    buyer_id: buyer_1.id,
-    review_id: review_1.id,
-    wishlist_id: wishlist_1.id
-)
-Product.create(product_name: Faker::Commerce.product_name, 
-    product_image_url: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" ,
-    product_description: Faker::Lorem.sentence(word_count: 12),
-    quantity: Faker::Number.digit,
-    price: Faker::Commerce.price,
-    subscribe: "Yes",
-    admin_id: admin.id,
-    buyer_id: buyer_1.id,
-    review_id: review_1.id,
-    wishlist_id: wishlist_1.id
-)
-Product.create(product_name: Faker::Commerce.product_name, 
-    product_image_url: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60", 
-    product_description: Faker::Lorem.sentence(word_count: 12),
-    quantity: Faker::Number.digit,
-    price: Faker::Commerce.price,
-    subscribe: "Yes",
-    admin_id: admin.id,
-    buyer_id: buyer_1.id,
-    review_id: review_1.id,
-    wishlist_id: wishlist_1.id
-)
-Product.create(product_name: Faker::Commerce.product_name, 
-    product_image_url: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8cHJvZHVjdHN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", 
-    product_description: Faker::Lorem.sentence(word_count: 12),
-    quantity: Faker::Number.digit,
-    price: Faker::Commerce.price,
-    subscribe: "Yes",
-    admin_id: admin.id,
-    buyer_id: buyer_1.id,
-    review_id: review_1.id,
-    wishlist_id: wishlist_1.id
-)
-Product.create(product_name: Faker::Commerce.product_name, 
-    product_image_url: "https://images.unsplash.com/photo-1479064555552-3ef4979f8908?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60", 
-    product_description: Faker::Lorem.sentence(word_count: 12),
-    quantity: Faker::Number.digit,
-    price: Faker::Commerce.price,
-    subscribe: "Yes",
-    admin_id: admin.id,
-    buyer_id: buyer_1.id,
-    review_id: review_1.id,
-    wishlist_id: wishlist_1.id
-)
-Product.create(product_name: Faker::Commerce.product_name, 
-    product_image_url: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80", 
-    product_description: Faker::Lorem.sentence(word_count: 12),
-    quantity: Faker::Number.digit,
-    price: Faker::Commerce.price,
-    subscribe: "Yes",
-    admin_id: admin.id,
-    buyer_id: buyer_1.id,
-    review_id: review_1.id,
-    wishlist_id: wishlist_1.id
-)
-Product.create(product_name: Faker::Commerce.product_name, 
-    product_image_url: Faker::LoremFlickr.image, 
-    product_description: Faker::Lorem.sentence(word_count: 12),
-    quantity: Faker::Number.digit,
-    price: Faker::Commerce.price,
-    subscribe: "Yes",
-    admin_id: admin.id,
-    buyer_id: buyer_1.id,
-    review_id: review_1.id,
-    wishlist_id: wishlist_1.id
-)
-Product.create(product_name: Faker::Commerce.product_name, 
-    product_image_url: "https://images.unsplash.com/photo-1567721913486-6585f069b332?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZHVjdHN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", 
-    product_description: Faker::Lorem.sentence(word_count: 12),
-    quantity: Faker::Number.digit,
-    price: Faker::Commerce.price,
-    subscribe: "Yes",
-    admin_id: admin.id,
-    buyer_id: buyer_1.id,
-    review_id: review_1.id,
-    wishlist_id: wishlist_1.id
-)
-Product.create(product_name: Faker::Commerce.product_name, 
-    product_image_url: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" ,
-    product_description: Faker::Lorem.sentence(word_count: 12),
-    quantity: Faker::Number.digit,
-    price: Faker::Commerce.price,
-    subscribe: "Yes",
-    admin_id: admin.id,
-    buyer_id: buyer_1.id,
-    review_id: review_1.id,
-    wishlist_id: wishlist_1.id
-)
 Product.create(product_name: Faker::Commerce.product_name, 
     product_image_url: Faker::LoremFlickr.image, 
     product_description: Faker::Lorem.sentence(word_count: 12),
@@ -226,6 +112,17 @@ Product.create(product_name: Faker::Commerce.product_name,
 )
 Product.create(product_name: Faker::Commerce.product_name, 
     product_image_url: "https://images.unsplash.com/photo-1567721913486-6585f069b332?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZHVjdHN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", 
+    product_description: Faker::Lorem.sentence(word_count: 12),
+    quantity: Faker::Number.digit,
+    price: Faker::Commerce.price,
+    subscribe: "Yes",
+    admin_id: admin.id,
+    buyer_id: buyer_1.id,
+    review_id: review_1.id,
+    wishlist_id: wishlist_1.id
+)
+Product.create(product_name: Faker::Commerce.product_name, 
+    product_image_url: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" ,
     product_description: Faker::Lorem.sentence(word_count: 12),
     quantity: Faker::Number.digit,
     price: Faker::Commerce.price,
@@ -1226,6 +1123,105 @@ Product.create(product_name: Faker::Commerce.product_name,
     wishlist_id: wishlist_1.id
 )
 Product.create(product_name: Faker::Commerce.product_name, 
+    product_image_url: Faker::LoremFlickr.image, 
+    product_description: Faker::Lorem.sentence(word_count: 12),
+    quantity: Faker::Number.digit,
+    price: Faker::Commerce.price,
+    subscribe: "Yes",
+    admin_id: admin.id,
+    buyer_id: buyer_1.id,
+    review_id: review_1.id,
+    wishlist_id: wishlist_1.id
+)
+Product.create(product_name: Faker::Commerce.product_name, 
+    product_image_url: "https://images.unsplash.com/photo-1567721913486-6585f069b332?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZHVjdHN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", 
+    product_description: Faker::Lorem.sentence(word_count: 12),
+    quantity: Faker::Number.digit,
+    price: Faker::Commerce.price,
+    subscribe: "Yes",
+    admin_id: admin.id,
+    buyer_id: buyer_1.id,
+    review_id: review_1.id,
+    wishlist_id: wishlist_1.id
+)
+Product.create(product_name: Faker::Commerce.product_name, 
+    product_image_url: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" ,
+    product_description: Faker::Lorem.sentence(word_count: 12),
+    quantity: Faker::Number.digit,
+    price: Faker::Commerce.price,
+    subscribe: "Yes",
+    admin_id: admin.id,
+    buyer_id: buyer_1.id,
+    review_id: review_1.id,
+    wishlist_id: wishlist_1.id
+)
+Product.create(product_name: Faker::Commerce.product_name, 
+    product_image_url: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60", 
+    product_description: Faker::Lorem.sentence(word_count: 12),
+    quantity: Faker::Number.digit,
+    price: Faker::Commerce.price,
+    subscribe: "Yes",
+    admin_id: admin.id,
+    buyer_id: buyer_1.id,
+    review_id: review_1.id,
+    wishlist_id: wishlist_1.id
+)
+Product.create(product_name: Faker::Commerce.product_name, 
+    product_image_url: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8cHJvZHVjdHN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", 
+    product_description: Faker::Lorem.sentence(word_count: 12),
+    quantity: Faker::Number.digit,
+    price: Faker::Commerce.price,
+    subscribe: "Yes",
+    admin_id: admin.id,
+    buyer_id: buyer_1.id,
+    review_id: review_1.id,
+    wishlist_id: wishlist_1.id
+)
+Product.create(product_name: Faker::Commerce.product_name, 
+    product_image_url: "https://images.unsplash.com/photo-1479064555552-3ef4979f8908?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60", 
+    product_description: Faker::Lorem.sentence(word_count: 12),
+    quantity: Faker::Number.digit,
+    price: Faker::Commerce.price,
+    subscribe: "Yes",
+    admin_id: admin.id,
+    buyer_id: buyer_1.id,
+    review_id: review_1.id,
+    wishlist_id: wishlist_1.id
+)
+Product.create(product_name: Faker::Commerce.product_name, 
+    product_image_url: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80", 
+    product_description: Faker::Lorem.sentence(word_count: 12),
+    quantity: Faker::Number.digit,
+    price: Faker::Commerce.price,
+    subscribe: "Yes",
+    admin_id: admin.id,
+    buyer_id: buyer_1.id,
+    review_id: review_1.id,
+    wishlist_id: wishlist_1.id
+)
+Product.create(product_name: Faker::Commerce.product_name, 
+    product_image_url: Faker::LoremFlickr.image, 
+    product_description: Faker::Lorem.sentence(word_count: 12),
+    quantity: Faker::Number.digit,
+    price: Faker::Commerce.price,
+    subscribe: "Yes",
+    admin_id: admin.id,
+    buyer_id: buyer_1.id,
+    review_id: review_1.id,
+    wishlist_id: wishlist_1.id
+)
+Product.create(product_name: Faker::Commerce.product_name, 
+    product_image_url: "https://images.unsplash.com/photo-1567721913486-6585f069b332?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZHVjdHN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", 
+    product_description: Faker::Lorem.sentence(word_count: 12),
+    quantity: Faker::Number.digit,
+    price: Faker::Commerce.price,
+    subscribe: "Yes",
+    admin_id: admin.id,
+    buyer_id: buyer_1.id,
+    review_id: review_1.id,
+    wishlist_id: wishlist_1.id
+)
+Product.create(product_name: Faker::Commerce.product_name, 
     product_image_url: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60", 
     product_description: Faker::Lorem.sentence(word_count: 12),
     quantity: Faker::Number.digit,
@@ -1346,5 +1342,4 @@ Product.create(product_name: Faker::Commerce.product_name,
     review_id: review_1.id,
     wishlist_id: wishlist_1.id
 )
-
 puts "🎯 Done seeding data"
