@@ -56,6 +56,10 @@ Find Heroku live-link [here](https://soko-application.herokuapp.com/)
 
 ![ProductsPage2](/client/public/products_page_2.png)
 
+* Shopping Cart
+
+![ShoppingCart](/client/public/shopping_cart.png)
+
 ## Requirements 
 
 - Ruby 2.7.4
